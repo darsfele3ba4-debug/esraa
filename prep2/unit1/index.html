@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prep 2 Unit 1 * Ms. Esraa Osman</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary: #0e7490;
+    --secondary: #06b6d4;
+    --primary-dark: #164e63;
+    --accent: #f5b301;
+    --success: #16a34a;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark: #0c2a3a;
+    --light: #ecfeff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+.arabic-text { font-family: 'Cairo', sans-serif; }
+
+body {
+    background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 45%, #fed7aa 100%);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(135deg, #082f49, #164e63 45%, #0e7490);
+    color: white;
+    padding: 26px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    border-bottom: 5px solid var(--accent);
+}
+.header-content { display: flex; align-items: center; gap: 30px; }
+.logo-container {
+    width: 190px; height: 230px; border-radius: 22px; overflow: hidden;
+    background: #082f49; border: 4px solid var(--accent);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease; flex-shrink: 0;
+}
+.logo-container:hover { transform: scale(1.03) rotate(-2deg); }
+.logo-container img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.brand { display: inline-block;
+    font-family: 'Cairo', sans-serif; font-weight: 900; font-size: 3.2rem; line-height: 1.15;
+    color: var(--accent); text-shadow: 2px 3px 0 rgba(0,0,0,0.35); letter-spacing: 1px;
+}
+.titles h2 { font-size: 1.45rem; font-weight: 600; color: #cffafe; letter-spacing: 0.5px; }
+.titles h3 {
+    font-size: 1.05rem; font-weight: 400; color: #f0f9ff; margin-top: 10px;
+    background: rgba(0,0,0,0.25); padding: 6px 15px; border-radius: 20px; display: inline-block;
+}
+.header-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.social-links a {
+    color: #25D366; font-size: 2.5rem; text-decoration: none; background: white; border-radius: 50%;
+    width: 65px; height: 65px; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.social-links a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(37,211,102,0.4); }
+.home-link {
+    color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 12px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; white-space: nowrap;
+}
+.home-link:hover { background: rgba(255,255,255,0.22); }
+
+/* ===== Layout ===== */
+.container { max-width: 960px; margin: 36px auto; padding: 20px; flex-grow: 1; width: 100%; }
+.screen {
+    display: none; background: white; border-radius: 20px; padding: 40px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); text-align: center;
+    animation: fadeIn 0.4s ease-out; border: 1px solid #cffafe;
+}
+.screen.active { display: block; }
+.screen h2 { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+.screen p { font-size: 1.1rem; color: #64748b; margin-bottom: 25px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 25px; }
+.game-card {
+    background: linear-gradient(135deg, #ffffff, #ecfeff);
+    border: 2px solid #cffafe; border-bottom: 6px solid var(--primary); border-radius: 20px;
+    padding: 28px 20px; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex; flex-direction: column; align-items: center; gap: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+.game-card:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-bottom-color: var(--primary-dark); color: white;
+    box-shadow: 0 15px 25px rgba(14,116,144,0.3);
+}
+.game-card h3 { font-size: 1.3rem; font-weight: 600; }
+.game-card i { font-size: 3.5rem; color: var(--primary); transition: color 0.3s; }
+.game-card:hover i { color: white; }
+
+.btn-back {
+    background: var(--danger); color: white; border: none; padding: 12px 25px; border-radius: 12px;
+    cursor: pointer; font-size: 1.1rem; font-weight: 600; box-shadow: 0 4px 0 #b91c1c;
+    transition: all 0.1s; display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-back:active { transform: translateY(4px); box-shadow: 0 0 0 #b91c1c; }
+.btn-section {
+    background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 12px;
+    cursor: pointer; font-size: 1.1rem; font-weight: 600; box-shadow: 0 4px 0 var(--primary-dark);
+    transition: all 0.1s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.btn-section:active { transform: translateY(4px); box-shadow: 0 0 0 var(--primary-dark); }
+
+/* ===== Mode switch ===== */
+.mode-switch { display: inline-flex; flex-wrap: wrap; justify-content: center; background: #e2e8f0; border-radius: 16px; padding: 6px; gap: 6px; margin-bottom: 14px; }
+.mode-btn {
+    border: none; background: transparent; padding: 12px 24px; border-radius: 12px;
+    font-weight: 700; font-size: 1.05rem; cursor: pointer; color: #334155;
+    display: inline-flex; gap: 9px; align-items: center; font-family: inherit; transition: all 0.2s;
+}
+.mode-btn.active { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(14,116,144,0.35); }
+.screen p.mode-hint { font-size: 0.98rem; color: #475569; margin-bottom: 10px; }
+
+.comp-settings {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;
+    background: #ecfeff; border: 2px dashed #fdba74; border-radius: 16px; padding: 20px;
+    margin: 10px 0 10px; text-align: left;
+}
+.comp-settings label { display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: #334155; }
+.comp-settings input, .comp-settings select {
+    width: 100%; padding: 10px 12px; border: 2px solid #cbd5e1; border-radius: 10px;
+    font-size: 1rem; font-family: inherit; background: white;
+}
+.comp-settings input:focus, .comp-settings select:focus { outline: none; border-color: var(--primary); }
+
+/* ===== Game screen ===== */
+#game-screen.screen { padding: 16px; }
+.comp-topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.comp-topbar h3 { font-size: 1.15rem; color: #475569; }
+
+.arena { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.arena.solo { grid-template-columns: 1fr; max-width: 880px; margin: 0 auto; }
+
+.team-panel.solo { --team: var(--primary); --team-dark: var(--primary-dark); --team-soft: #ecfeff; }
+.t0 { --team: #2563eb; --team-dark: #1e3a8a; --team-soft: #eff6ff; }
+.t1 { --team: #ea580c; --team-dark: #9a3412; --team-soft: #fff7ed; }
+
+.team-panel {
+    border: 4px solid var(--team); border-radius: 18px; padding: 14px; background: var(--team-soft);
+    display: flex; flex-direction: column; position: relative; overflow: hidden; min-height: 520px;
+}
+.team-panel.solo { min-height: 0; padding: 20px; }
+.team-head {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--team); color: white; border-radius: 12px; padding: 10px 14px; margin-bottom: 10px;
+}
+.team-name { font-size: 1.3rem; font-weight: 800; }
+.team-score { font-size: 1.5rem; font-weight: 800; background: rgba(255,255,255,0.22); padding: 2px 14px; border-radius: 10px; }
+.team-meta { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: var(--team-dark); margin-bottom: 6px; }
+.timer-num { font-size: 1.4rem; min-width: 48px; text-align: right; }
+.timer-bar { height: 12px; background: #e2e8f0; border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+.timer-fill { height: 100%; width: 100%; background: var(--success); transition: width 0.1s linear, background 0.3s; }
+.timer-fill.warn { background: var(--warning); }
+.timer-fill.danger { background: var(--danger); }
+.team-panel.solo .timer-num, .team-panel.solo .timer-bar { display: none; }
+.team-panel.solo .team-meta { margin-bottom: 14px; }
+
+.question-text { font-size: 1.8rem; margin-bottom: 30px; font-weight: 800; color: var(--dark); line-height: 1.4; }
+.team-panel .question-text { font-size: 1.35rem; margin-bottom: 16px; min-height: 3.8em; display: flex; align-items: center; justify-content: center; }
+.team-panel.solo .question-text { font-size: 1.75rem; margin-bottom: 26px; }
+
+.options-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.team-panel .options-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+.team-panel.solo .options-grid { grid-template-columns: 1fr; gap: 14px; }
+
+.option-btn {
+    background: white; border: 2px solid #e2e8f0; color: var(--dark); padding: 18px; border-radius: 15px;
+    font-size: 1.3rem; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 5px 0 #cbd5e1; position: relative;
+}
+.team-panel .option-btn { font-size: 1.15rem; padding: 14px 10px; }
+.team-panel.solo .option-btn { font-size: 1.3rem; padding: 18px; }
+.option-btn:active { transform: translateY(5px); box-shadow: 0 0 0 #cbd5e1; }
+.option-btn:hover { border-color: var(--team, var(--primary)); background: #f8fafc; }
+.option-btn.correct { background: var(--success); border-color: var(--success); color: white; box-shadow: 0 5px 0 #15803d; }
+.option-btn.wrong { background: var(--danger); border-color: var(--danger); color: white; box-shadow: 0 5px 0 #b91c1c; }
+.option-btn, .bubble, .target { touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+
+.bubbles-container {
+    position: relative; height: 340px; background: linear-gradient(to bottom, #a5f3fc, #ecfeff);
+    border-radius: 20px; overflow: hidden; border: 4px solid var(--team, var(--primary));
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+.team-panel.solo .bubbles-container { height: 450px; }
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(207,250,254,0.95));
+    border: 2px solid rgba(255,255,255,0.6); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; font-weight: 800; color: var(--primary-dark);
+    cursor: pointer; box-shadow: 0 8px 15px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.1s; text-align: center; padding: 4px; font-size: 0.85rem; line-height: 1.1;
+    overflow: hidden; word-break: break-word; z-index: 2;
+}
+.bubble:active { transform: scale(0.9); }
+
+.targets-container {
+    position: relative; height: 320px; background: linear-gradient(135deg, #082f49, #155e75);
+    border-radius: 20px; overflow: hidden; border: 4px solid var(--accent); box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
+.team-panel.solo .targets-container { height: 400px; }
+.target {
+    position: absolute; background: radial-gradient(circle, #fff, #fcd34d, #f59e0b);
+    border: 4px solid white; padding: 15px 25px; border-radius: 30px; font-weight: 800; color: white;
+    text-shadow: 1px 1px 2px black; cursor: crosshair; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4); white-space: nowrap; text-align: center; z-index: 2;
+}
+
+.team-flash {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 7rem; pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 5;
+}
+.team-flash.show { opacity: 1; }
+.team-flash.correct { color: var(--success); background: rgba(22,163,74,0.12); }
+.team-flash.wrong { color: var(--danger); background: rgba(239,68,68,0.12); }
+
+.team-done {
+    position: absolute; inset: 0; background: rgba(255,255,255,0.93);
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 6; text-align: center; gap: 10px; padding: 20px;
+}
+.team-panel.finished .team-done { display: flex; }
+
+.countdown-overlay {
+    position: fixed; inset: 0; background: rgba(8,47,73,0.82); display: none; align-items: center; justify-content: center;
+    z-index: 2000; color: var(--accent); font-size: 10rem; font-weight: 900; font-family: 'Poppins', sans-serif;
+}
+.countdown-overlay.show { display: flex; }
+
+/* ===== Results ===== */
+.results-list {
+    text-align: left; margin-top: 20px; max-height: 400px; overflow-y: auto;
+    border: 2px solid #e2e8f0; padding: 18px; border-radius: 15px; background: #f8fafc;
+}
+.mistake-item { background: white; padding: 14px; border-left: 5px solid var(--danger); margin-bottom: 12px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
+.mistake-q { font-weight: 600; margin-bottom: 8px; font-size: 1.05rem; color: var(--dark); }
+.mistake-a { color: var(--success); font-weight: 800; }
+
+.final-score { margin: 18px 0; font-size: 1.9rem; color: var(--primary); }
+.winner-banner { font-size: 2.2rem; font-weight: 900; margin: 10px 0 20px; color: #b45309; }
+.score-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: center; }
+.score-card { border: 4px solid var(--team); background: var(--team-soft); border-radius: 18px; padding: 18px; }
+.score-card.win { box-shadow: 0 0 0 6px var(--accent), 0 10px 25px rgba(0,0,0,0.15); }
+.score-card h4 { font-size: 1.4rem; color: var(--team-dark); }
+.score-card .big { font-size: 3rem; font-weight: 900; color: var(--team-dark); line-height: 1.2; }
+.score-card .meta { color: #475569; font-weight: 600; }
+.score-card .results-list { max-height: 260px; margin-top: 12px; padding: 12px; }
+.results-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
+.results-actions button { margin: 0; padding: 15px 30px; font-size: 1.15rem; }
+
+.whatsapp-share { margin-top: 28px; padding: 25px; background: #ecfeff; border: 2px dashed #25D366; border-radius: 18px; }
+.screen .whatsapp-share p { margin-bottom: 15px; color: var(--dark); font-weight: 700; font-size: 1.1rem; }
+.name-input {
+    width: 100%; max-width: 340px; padding: 14px 18px; border: 2px solid #cbd5e1; border-radius: 12px;
+    font-size: 1.1rem; font-family: 'Poppins', sans-serif; margin-bottom: 15px; text-align: center;
+}
+.name-input:focus { outline: none; border-color: #25D366; }
+.name-input.input-error { border-color: var(--danger); animation: shakeInput 0.4s; }
+@keyframes shakeInput { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.btn-whatsapp {
+    background: #25D366; color: white; border: none; padding: 14px 28px; border-radius: 12px; cursor: pointer;
+    font-size: 1.1rem; font-weight: 700; box-shadow: 0 4px 0 #128C3E; transition: all 0.1s;
+    display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-whatsapp:active { transform: translateY(4px); box-shadow: 0 0 0 #128C3E; }
+
+.main-footer {
+    background: #082f49; color: white; text-align: center; padding: 20px; font-size: 1.15rem;
+    font-weight: 600; letter-spacing: 1px; margin-top: auto; border-top: 4px solid var(--accent);
+}
+.main-footer .brand-mini { font-family: 'Cairo', sans-serif; color: var(--accent); font-weight: 900; }
+
+@media (max-width: 900px) {
+    .arena, .score-cards { grid-template-columns: 1fr; }
+    .team-panel { min-height: auto; }
+}
+@media (max-width: 768px) {
+    header { padding: 22px 18px; flex-direction: column; text-align: center; }
+    .header-content { flex-direction: column; gap: 14px; }
+    .logo-container { width: 140px; height: 170px; }
+    .brand { font-size: 2.4rem; }
+    .titles h2 { font-size: 1.1rem; }
+    .header-actions { flex-direction: row; }
+    .screen { padding: 24px 16px; }
+    .question-text, .team-panel.solo .question-text { font-size: 1.35rem; }
+    .option-btn, .team-panel.solo .option-btn { font-size: 1.1rem; }
+    .social-links a { width: 55px; height: 55px; font-size: 2.2rem; }
+    .team-panel.solo .bubbles-container { height: 380px; }
+    .bubble { font-size: 0.68rem; padding: 2px; }
+    .team-panel.solo .targets-container { height: 320px; }
+    .target { padding: 8px 12px; font-size: 0.72rem; white-space: normal; max-width: 42%; line-height: 1.15; }
+}
+@media (max-width: 480px) {
+    .team-panel.solo .bubbles-container { height: 320px; }
+    .bubble { font-size: 0.6rem; }
+    .team-panel.solo .targets-container { height: 280px; }
+    .target { font-size: 0.65rem; padding: 6px 10px; max-width: 46%; }
+}
+
+/* compact header while a competition is running */
+body.compact header { padding: 10px 20px; flex-direction: row; text-align: left; }
+body.compact .header-content { flex-direction: row; gap: 14px; }
+body.compact .logo-container { width: 54px; height: 66px; border-radius: 10px; border-width: 2px; }
+body.compact .brand { font-size: 1.5rem; }
+body.compact .titles h2 { font-size: 0.9rem; }
+body.compact .titles h3 { display: none; }
+body.compact .header-actions { flex-direction: row; }
+body.compact .home-link { display: none; }
+body.compact .social-links a { width: 44px; height: 44px; font-size: 1.6rem; }
+body.compact .main-footer { display: none; }
+body.compact .container { max-width: 1500px; margin: 12px auto; padding: 10px; }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODAgNDYwIiB3aWR0aD0iMzgwIiBoZWlnaHQ9IjQ2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZTNhOGEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjQ1IiBzdG9wLWNvbG9yPSIjN2MzYWVkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC43NSIgc3RvcC1jb2xvcj0iI2Y0NzJiNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZGJhNzQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InN1biIgY3g9IjAuNSIgY3k9IjAuNSIgcj0iMC41Ij4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmN2NjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iI2ZkZTA0NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmOTczMTYiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciIGN4PSIwLjUiIGN5PSIwLjUiIHI9IjAuNSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZkZTY4YSIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZkZTY4YSIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJoaWxsMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwODkxYjIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwZTc0OTAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImhpbGwyIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzE1NWU3NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA4MmY0OSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM4MCIgaGVpZ2h0PSI0NjAiIGZpbGw9InVybCgjc2t5KSIvPgogIDwhLS0gc3RhcnMgLS0+CiAgPGcgZmlsbD0iI2ZmZiI+CiAgICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSIyIi8+PGNpcmNsZSBjeD0iOTUiIGN5PSI3MCIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iMzMwIiBjeT0iMzUiIHI9IjIuMiIvPgogICAgPGNpcmNsZSBjeD0iMjkwIiBjeT0iODUiIHI9IjEuNCIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iMTIwIiByPSIxLjMiLz48Y2lyY2xlIGN4PSIzNDUiIGN5PSIxMzAiIHI9IjEuNiIvPgogICAgPHBhdGggZD0iTTE5MCAyMiBsNSAxMSAxMiAxLjUgLTkgOCAzIDEyIC0xMSAtNi41IC0xMSA2LjUgMyAtMTIgLTkgLTggMTIgLTEuNXoiIGZpbGw9IiNmZGUwNDciLz4KICA8L2c+CiAgPCEtLSBzdW4gcmF5cyAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOTAgMjY1KSIgc3Ryb2tlPSIjZmRlNjhhIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC43NSI+CiAgICA8bGluZSB4MT0iMCIgeTE9Ii05NSIgeDI9IjAiIHkyPSItMTM1Ii8+CiAgICA8bGluZSB4MT0iNjciIHkxPSItNjciIHgyPSI5NSIgeTI9Ii05NSIvPjxsaW5lIHgxPSItNjciIHkxPSItNjciIHgyPSItOTUiIHkyPSItOTUiLz4KICAgIDxsaW5lIHgxPSI5NSIgeTE9Ii0xMCIgeDI9IjEzNSIgeTI9Ii0xNCIvPjxsaW5lIHgxPSItOTUiIHkxPSItMTAiIHgyPSItMTM1IiB5Mj0iLTE0Ii8+CiAgICA8bGluZSB4MT0iMzYiIHkxPSItODgiIHgyPSI1MiIgeTI9Ii0xMjUiLz48bGluZSB4MT0iLTM2IiB5MT0iLTg4IiB4Mj0iLTUyIiB5Mj0iLTEyNSIvPgogICAgPGxpbmUgeDE9Ijg4IiB5MT0iLTM4IiB4Mj0iMTIyIiB5Mj0iLTU1Ii8+PGxpbmUgeDE9Ii04OCIgeTE9Ii0zOCIgeDI9Ii0xMjIiIHkyPSItNTUiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iMTkwIiBjeT0iMjY1IiByPSIxMjAiIGZpbGw9InVybCgjZ2xvdykiLz4KICA8Y2lyY2xlIGN4PSIxOTAiIGN5PSIyNjUiIHI9IjcyIiBmaWxsPSJ1cmwoI3N1bikiLz4KICA8IS0tIGhpbGxzIC0tPgogIDxwYXRoIGQ9Ik0wIDI4MCBROTAgMjMwIDE5MCAyNjggVDM4MCAyNTAgVjQ2MCBIMHoiIGZpbGw9InVybCgjaGlsbDEpIi8+CiAgPHBhdGggZD0iTTAgMzIwIFExMTAgMjg1IDIxMCAzMTIgVDM4MCAzMDAgVjQ2MCBIMHoiIGZpbGw9InVybCgjaGlsbDIpIi8+CiAgPCEtLSBncm93aW5nIHBsYW50IC0tPgogIDxnPgogICAgPHBhdGggZD0iTTE5MCAzMzAgQzE4OCAzMDAgMTkyIDI3NSAxOTAgMjQwIiBzdHJva2U9IiM0YWRlODAiIHN0cm9rZS13aWR0aD0iNyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNMTkwIDI4NSBDMTY1IDI4MCAxNDggMjYwIDE1MCAyMzggQzE3MiAyNDAgMTkwIDI1OCAxOTAgMjg1eiIgZmlsbD0iIzIyYzU1ZSIvPgogICAgPHBhdGggZD0iTTE5MCAyNjggQzIxNCAyNjIgMjMyIDI0MCAyMzAgMjE4IEMyMDcgMjIwIDE5MCAyNDAgMTkwIDI2OHoiIGZpbGw9IiM0YWRlODAiLz4KICAgIDxwYXRoIGQ9Ik0xOTAgMjQ1IEMxODAgMjMyIDE4MiAyMTQgMTkwIDIwMiBDMTk4IDIxNCAyMDAgMjMyIDE5MCAyNDV6IiBmaWxsPSIjODZlZmFjIi8+CiAgICA8ZWxsaXBzZSBjeD0iMTkwIiBjeT0iMzMzIiByeD0iMzQiIHJ5PSI3IiBmaWxsPSIjMDUyZTIyIiBvcGFjaXR5PSIwLjUiLz4KICA8L2c+CiAgPCEtLSBtb3RpdmF0aW9uYWwgdGV4dCAtLT4KICA8dGV4dCB4PSIxOTAiIHk9IjM3MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlBvcHBpbnMsIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjI3IiBmaWxsPSIjZmRlMDQ3IiBsZXR0ZXItc3BhY2luZz0iMSI+RHJlYW0g4oCiIEJlbGlldmU8L3RleHQ+CiAgPHRleHQgeD0iMTkwIiB5PSI0MDQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iI2ZmZmZmZiIgbGV0dGVyLXNwYWNpbmc9IjIiPkFDSElFVkUhPC90ZXh0PgogIDx0ZXh0IHg9IjE5MCIgeT0iNDQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQ2Fpcm8sIFRhaG9tYSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjEiIGZpbGw9IiNmZWQ3YWEiIGRpcmVjdGlvbj0icnRsIj7YqNin2YTYo9mF2YQg2YbYtdmG2Lkg2KfZhNmG2KzYp9itPC90ZXh0Pgo8L3N2Zz4K" alt="Mr Ahmed Usama">
+            </div>
+            <div class="titles">
+                <div class="brand">Ms. Esraa Osman</div>
+                <h2>Dream • Believe • Achieve ✨</h2>
+                <h3>Prep 2 - Unit 1: Gen Alpha | Grammar: Present Continuous Tense</h3>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="social-links">
+                <a href="https://wa.me/201033875892" target="_blank" title="Contact via WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+                    </div>
+    </header>
+
+    <div class="container">
+
+        <div id="section-select" class="screen active">
+            <h2>Welcome! Choose what to practice:</h2>
+            <p>Prep 2 - Unit 1: Gen Alpha</p>
+            <div class="menu-grid">
+                <div class="game-card" id="grammar-card" onclick="chooseSection('grammar')">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Grammar Games<br><span style="font-size:0.85rem;font-weight:400;">Present Continuous Tense</span></h3>
+                </div>
+                <div class="game-card" onclick="chooseSection('vocab')">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Vocabulary Games<br><span style="font-size:0.85rem;font-weight:400;">Unit 1 Words</span></h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-menu" class="screen">
+            <button class="btn-section" onclick="switchScreen('section-select')"><i class="fas fa-arrow-left"></i> Back to Sections</button>
+            <h2 id="menu-title">Choose a game:</h2>
+            <p id="menu-desc"></p>
+            <p class="mode-hint" id="mode-hint"></p>
+
+            <div class="menu-grid">
+                <div class="game-card" onclick="startGame(1)"><i class="fas fa-list-ul"></i><h3>Multiple Choice</h3></div>
+                <div class="game-card" onclick="startGame(2)"><i class="fas fa-soap"></i><h3>Falling Bubbles</h3></div>
+                <div class="game-card" onclick="startGame(3)"><i class="fas fa-crosshairs"></i><h3>Target Practice</h3></div>
+                <div class="game-card" onclick="startGame(4)"><i class="fas fa-check-circle"></i><h3>True or False</h3></div>
+                <div class="game-card" onclick="startGame(5)"><i class="fas fa-layer-group"></i><h3>Advanced Challenge</h3></div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="comp-topbar">
+                <button class="btn-back" id="btn-stop" onclick="returnToMenu()"><i class="fas fa-arrow-left"></i> Back</button>
+                <h3 id="comp-title"></h3>
+                <h3 id="comp-time-wrap"><i class="fas fa-stopwatch"></i> <span id="comp-time-label">20</span>s / question</h3>
+            </div>
+            <div class="arena" id="arena"></div>
+        </div>
+
+        <!-- Single-player results -->
+        <div id="solo-results" class="screen">
+            <h2>Game Over!</h2>
+            <h3 class="final-score">Final Score: <span id="final-score"></span> / <span id="final-total"></span></h3>
+            <div id="mistakes-container" class="results-list"></div>
+
+            <div class="whatsapp-share">
+                <p>📩 Send your result to Ms. Esraa Osman</p>
+                <input type="text" id="student-name-input" class="name-input" placeholder="Type your name here">
+                <br>
+                <button class="btn-whatsapp" onclick="sendSoloResult()"><i class="fab fa-whatsapp"></i> Send Result via WhatsApp</button>
+            </div>
+
+            <div class="results-actions">
+                <button class="btn-section" onclick="startGame(currentGameId)"><i class="fas fa-redo"></i> Play Again</button>
+                <button class="btn-back" style="background: var(--dark); box-shadow: 0 5px 0 #000;" onclick="returnToMenu()"><i class="fas fa-home"></i> Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        Ms. Esraa Osman — <span class="brand-mini" dir="rtl">بالأمل نصنع النجاح</span>
+    </footer>
+
+    <div class="countdown-overlay" id="countdown"></div>
+
+    <script>
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        try { audioCtx = new AudioContext(); } catch (e) {}
+
+        function tone(type, f1, f2, dur, delay) {
+            const t0 = audioCtx.currentTime + (delay || 0);
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = type;
+            osc.frequency.setValueAtTime(f1, t0);
+            osc.frequency.exponentialRampToValueAtTime(f2, t0 + dur);
+            gain.gain.setValueAtTime(0.1, t0);
+            gain.gain.exponentialRampToValueAtTime(0.01, t0 + dur);
+            osc.start(t0);
+            osc.stop(t0 + dur);
+        }
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (type === 'correct') tone('sine', 400, 800, 0.15);
+                else if (type === 'wrong') tone('sawtooth', 300, 100, 0.3);
+                else if (type === 'tick') tone('sine', 600, 600, 0.12);
+                else if (type === 'go') tone('square', 700, 1000, 0.3);
+                else if (type === 'win') [523, 659, 784, 1047].forEach((f, i) => tone('triangle', f, f, 0.25, i * 0.15));
+            } catch (e) {}
+        }
+
+        const PREP_LABEL = "Prep 2";
+        const HAS_GRAMMAR = true;
+        const GRAMMAR_BANK = [{"text": "Look! The children _____ in the garden.", "ans": "are playing", "wrong": ["play", "played", "plays"]}, {"text": "Listen! Somebody _____ at the door.", "ans": "is knocking", "wrong": ["knocks", "knocked", "knock"]}, {"text": "I can't talk now. I _____ my homework.", "ans": "am doing", "wrong": ["do", "did", "does"]}, {"text": "Be quiet! The baby _____.", "ans": "is sleeping", "wrong": ["sleeps", "slept", "sleep"]}, {"text": "Right now, Ahmed _____ short videos.", "ans": "is watching", "wrong": ["watches", "watched", "watch"]}, {"text": "At the moment, my mother _____ dinner.", "ans": "is cooking", "wrong": ["cooks", "cooked", "cook"]}, {"text": "They _____ football in the park now.", "ans": "are playing", "wrong": ["is playing", "play", "played"]}, {"text": "She _____ to music right now.", "ans": "is listening", "wrong": ["listens", "listened", "listen"]}, {"text": "Look! The birds _____ in the sky.", "ans": "are flying", "wrong": ["fly", "flew", "flies"]}, {"text": "He _____ his posts in English now.", "ans": "is writing", "wrong": ["writes", "wrote", "write"]}, {"text": "Many children _____ in the library at the moment.", "ans": "are reading", "wrong": ["is reading", "reads", "readed"]}, {"text": "I _____ not watching TV now.", "ans": "am", "wrong": ["is", "are", "do"]}, {"text": "My sister _____ her room at the moment.", "ans": "is tidying", "wrong": ["tidies", "tidied", "tidy"]}, {"text": "_____ you eating breakfast now?", "ans": "Are", "wrong": ["Do", "Is", "Does"]}, {"text": "_____ Mona chatting with her friends right now?", "ans": "Is", "wrong": ["Are", "Does", "Do"]}, {"text": "They _____ sleeping. They're watching a film.", "ans": "aren't", "wrong": ["isn't", "don't", "doesn't"]}, {"text": "The students _____ studying in the lab now.", "ans": "are", "wrong": ["is", "am", "be"]}, {"text": "Look! It _____ heavily outside.", "ans": "is raining", "wrong": ["rains", "rained", "rain"]}, {"text": "Hurry up! The bus _____.", "ans": "is coming", "wrong": ["comes", "came", "come"]}, {"text": "Heba _____ social media now.", "ans": "is using", "wrong": ["used", "uses", "use"]}, {"text": "Look! They _____ memes with their friends.", "ans": "are sharing", "wrong": ["share", "shared", "shares"]}, {"text": "I _____ my homework online at the moment.", "ans": "am doing", "wrong": ["do", "did", "does"]}, {"text": "We use the present continuous for actions happening _____.", "ans": "right now", "wrong": ["every day", "last year", "usually"]}, {"text": "Why _____ you laughing?", "ans": "are", "wrong": ["do", "is", "does"]}, {"text": "What _____ Ali doing in his room now?", "ans": "is", "wrong": ["are", "does", "do"]}, {"text": "My father _____ a nap at the moment.", "ans": "is having", "wrong": ["has", "had", "have"]}, {"text": "Shh! The teacher _____.", "ans": "is talking", "wrong": ["talks", "talked", "talk"]}, {"text": "Look at Zeinab! She _____ a funny face.", "ans": "is making", "wrong": ["makes", "made", "make"]}, {"text": "Where are the kids? They _____ in the pool.", "ans": "are swimming", "wrong": ["swim", "swam", "swims"]}, {"text": "I _____ for my keys. Have you seen them?", "ans": "am looking", "wrong": ["look", "looked", "looks"]}, {"text": "Mum _____ on the phone right now.", "ans": "is talking", "wrong": ["talks", "talked", "talk"]}, {"text": "The phone _____! Can you answer it?", "ans": "is ringing", "wrong": ["rings", "rang", "ring"]}, {"text": "Be careful! You _____ milk on the floor.", "ans": "are dropping", "wrong": ["drop", "dropped", "drops"]}, {"text": "Look! Our neighbours _____ their car.", "ans": "are washing", "wrong": ["wash", "washed", "washes"]}, {"text": "Listen! Who _____ the piano?", "ans": "is playing", "wrong": ["plays", "played", "play"]}, {"text": "I _____ my grandma next Monday. It's all arranged.", "ans": "am visiting", "wrong": ["visited", "was visit", "visits"]}, {"text": "We _____ dinner with our cousins tonight. We booked a table.", "ans": "are having", "wrong": ["had", "has", "have had"]}, {"text": "He _____ football next Friday with his team.", "ans": "is playing", "wrong": ["played", "plays", "play"]}, {"text": "What _____ you doing this weekend?", "ans": "are", "wrong": ["do", "did", "does"]}, {"text": "The bus is _____ at the station now. (stop)", "ans": "stopping", "wrong": ["stoping", "stopps", "stoped"]}, {"text": "He is _____ in the sea. (swim)", "ans": "swimming", "wrong": ["swiming", "swimm", "swims"]}, {"text": "They are _____ a cake for the party. (make)", "ans": "making", "wrong": ["makeing", "makking", "maked"]}, {"text": "Look! The man is _____ very fast. (run)", "ans": "running", "wrong": ["runing", "runnning", "runs"]}, {"text": "I am _____ a blog post about my day. (write)", "ans": "writing", "wrong": ["writting", "writeing", "wrote"]}, {"text": "She is _____ on the beach in the sun. (lie)", "ans": "lying", "wrong": ["lieing", "lyeing", "lies"]}, {"text": "We are _____ in the garden. (sit)", "ans": "sitting", "wrong": ["siting", "sitteing", "sits"]}, {"text": "\"Is he studying?\" \"No, he _____.\"", "ans": "isn't", "wrong": ["doesn't", "aren't", "don't"]}, {"text": "\"Are they playing online games?\" \"Yes, they _____.\"", "ans": "are", "wrong": ["do", "is", "were"]}, {"text": "I am chatting with my friends _____.", "ans": "at the moment", "wrong": ["every day", "yesterday", "last night"]}, {"text": "They are working on a project about online safety _____.", "ans": "this week", "wrong": ["last week", "every year", "two days ago"]}, {"text": "Rahma _____ apples at the moment.", "ans": "is eating", "wrong": ["eats", "ate", "eat"]}, {"text": "Ali _____ his cousins at this moment.", "ans": "isn't visiting", "wrong": ["doesn't visit", "didn't visit", "not visiting"]}, {"text": "Listen! The children _____ in their room.", "ans": "are singing", "wrong": ["are sing", "sing", "sings"]}, {"text": "Right now, many parents _____ to limit screen time.", "ans": "are trying", "wrong": ["tries", "tried", "has try"]}, {"text": "We _____ online at the moment, so we can't hear you.", "ans": "are chatting", "wrong": ["chat", "chatted", "chats"]}, {"text": "Why _____ the students laughing at the meme?", "ans": "are", "wrong": ["is", "do", "does"]}, {"text": "Sorry, I can't come out. I _____ for my exam.", "ans": "am studying", "wrong": ["study", "studied", "studies"]}, {"text": "Don't turn off the computer! I _____ it.", "ans": "am using", "wrong": ["use", "used", "uses"]}, {"text": "The weather _____ colder these days.", "ans": "is getting", "wrong": ["gets to", "got", "get"]}, {"text": "Choose the correct sentence: _____", "ans": "They are watching TV now.", "wrong": ["They watching TV now.", "They are watch TV now.", "They is watching TV now."]}, {"text": "Choose the correct sentence: _____", "ans": "Is he working today?", "wrong": ["Does he working today?", "Is he work today?", "Are he working today?"]}, {"text": "Choose the correct sentence: _____", "ans": "I'm not wearing a coat today.", "wrong": ["I'm not wear a coat today.", "I don't wearing a coat today.", "I amn't wearing a coat today."]}, {"text": "Choose the correct sentence: _____", "ans": "We're meeting Omar at 6 this evening.", "wrong": ["We meeting Omar at 6 this evening.", "We're meet Omar at 6 this evening.", "We is meeting Omar at 6 this evening."]}, {"text": "Who _____ to Lujain on the phone right now?", "ans": "is talking", "wrong": ["talks", "talked", "talk"]}, {"text": "Zeinab and Lujain _____ about screen time now.", "ans": "are discussing", "wrong": ["discusses", "discussed", "is discussing"]}, {"text": "The children _____ a lot of time online this summer.", "ans": "are spending", "wrong": ["spends", "is spending", "spended"]}, {"text": "I _____ what you mean. (stative verb)", "ans": "understand", "wrong": ["am understanding", "understanding", "am understand"]}, {"text": "She _____ her new smartphone very much.", "ans": "loves", "wrong": ["is loving", "loving", "is love"]}, {"text": "This tablet _____ to my brother.", "ans": "belongs", "wrong": ["is belonging", "belonging", "belong"]}, {"text": "Ahmed usually walks to school, but today he _____ the bus.", "ans": "is taking", "wrong": ["takes", "took", "take"]}, {"text": "My dad _____ to work every day.", "ans": "drives", "wrong": ["is driving", "drive", "driving"]}, {"text": "Look! Our teacher _____ a new red dress today.", "ans": "is wearing", "wrong": ["wears", "wear", "wore"]}, {"text": "Right now I _____ hungry, so let's eat.", "ans": "am", "wrong": ["am being", "being", "is"]}, {"text": "We _____ a great time at the party! Come and join us.", "ans": "are having", "wrong": ["has", "had", "having"]}, {"text": "He _____ two cars and a motorbike. (have = possess)", "ans": "has", "wrong": ["is having", "have", "having"]}, {"text": "I _____ you're right about screen time.", "ans": "think", "wrong": ["am thinking", "thinking", "thinks"]}, {"text": "What _____ about? You look worried.", "ans": "are you thinking", "wrong": ["do you thinking", "you are thinking", "think you"]}, {"text": "Correct the mistake: \"He plays online games next week.\" → He _____ online games next week.", "ans": "is playing", "wrong": ["play", "playing", "was play"]}, {"text": "Correct the mistake: \"Listen! The children are sing.\" → The children _____.", "ans": "are singing", "wrong": ["is singing", "sings", "singing"]}, {"text": "Correct the mistake: \"Rahma eats apples at the moment.\" → Rahma _____ apples.", "ans": "is eating", "wrong": ["eat", "was eat", "eating"]}, {"text": "Correct the mistake: \"Ali doesn't visit his cousins at this moment.\" → Ali _____ his cousins.", "ans": "isn't visiting", "wrong": ["not visiting", "doesn't visiting", "isn't visit"]}, {"text": "These days, more and more teenagers _____ smartphones at a young age.", "ans": "are using", "wrong": ["uses", "used", "is using"]}, {"text": "The world of technology _____ very fast nowadays.", "ans": "is changing", "wrong": ["changes to", "changed", "change to"]}, {"text": "\"Where's Hana?\" \"She _____ a shower.\"", "ans": "is having", "wrong": ["has", "had", "have"]}, {"text": "I _____ with my uncle in Aswan for a few days. I usually live in Cairo.", "ans": "am staying", "wrong": ["stay", "stayed", "stays"]}, {"text": "Don't call Omar now. He _____ for his exam.", "ans": "is revising", "wrong": ["revises", "revised", "revise"]}, {"text": "Which verb is NOT usually used in the present continuous? _____", "ans": "know", "wrong": ["play", "study", "read"]}, {"text": "Which verb is NOT usually used in the continuous form? _____", "ans": "want", "wrong": ["write", "swim", "cook"]}, {"text": "She _____ a lot of messages these days because of her new project.", "ans": "is sending", "wrong": ["sends to", "sent", "send"]}, {"text": "Sorry, I _____ on the phone. Can I call you back?", "ans": "am talking", "wrong": ["talk", "talked", "talks"]}, {"text": "My friends and I _____ a blog about our digital habits this month.", "ans": "are writing", "wrong": ["writes", "wrote", "is writing"]}, {"text": "Why _____ Ziad wearing a coat? It isn't cold.", "ans": "is", "wrong": ["does", "are", "do"]}, {"text": "Gen Alpha rarely _____ a day without using technology. (a habit)", "ans": "spends", "wrong": ["is spending", "spending", "spend"]}, {"text": "Leila _____ hard to balance her work with her personal life these days.", "ans": "is trying", "wrong": ["try", "tried", "trying"]}, {"text": "\"Can you help me?\" \"Sorry, I _____ dinner right now.\"", "ans": "am cooking", "wrong": ["cook", "cooked", "cooks"]}, {"text": "At this moment, millions of people _____ the same trending video.", "ans": "are watching", "wrong": ["watches", "watched", "is watching"]}, {"text": "Present continuous form: subject + am/is/are + _____", "ans": "verb + ing", "wrong": ["past participle", "infinitive", "verb + s"]}, {"text": "\"_____ you listening to me?\" \"Yes, I am.\"", "ans": "Are", "wrong": ["Do", "Is", "Did"]}, {"text": "My parents _____ a new house at the moment. They want to move next year.", "ans": "are building", "wrong": ["build", "built", "builds"]}, {"text": "Look! Samy _____ his bike without holding the handlebars!", "ans": "is riding", "wrong": ["rides", "rode", "ride"]}, {"text": "Nowadays, more Gen Alpha children _____ to code.", "ans": "are learning", "wrong": ["learns", "learned", "is learning"]}];
+        const VOCAB_BANK = [{"text": "A _____ is a group of people born around the same time.", "ans": "generation", "wrong": ["trend", "habit", "balance"]}, {"text": "Gen Alpha are called digital _____ because they learn technology before they can read.", "ans": "natives", "wrong": ["visitors", "strangers", "tourists"]}, {"text": "Popular new styles that spread quickly online are called _____.", "ans": "trends", "wrong": ["emojis", "habits", "limits"]}, {"text": "Small digital images used to show feelings in messages are _____.", "ans": "emojis", "wrong": ["trends", "blogs", "settings"]}, {"text": "Funny pictures or videos that people share and copy online are called _____.", "ans": "memes", "wrong": ["settings", "limits", "passwords"]}, {"text": "The amount of time spent looking at a screen is called _____.", "ans": "screen time", "wrong": ["free time", "lunch time", "bed time"]}, {"text": "Too much _____ can be bad for your eyes and sleep.", "ans": "screen time", "wrong": ["sleep", "exercise", "water"]}, {"text": "Gen Alpha children were born from around _____ to the mid-2020s.", "ans": "2010", "wrong": ["1997", "1950", "1980"]}, {"text": "Gen Z includes people born between 1997 and _____.", "ans": "2012", "wrong": ["2030", "1960", "1975"]}, {"text": "We should find a _____ between online activities and real-life connections.", "ans": "balance", "wrong": ["trend", "meme", "limit"]}, {"text": "Parents want to _____ their children's screen time.", "ans": "limit", "wrong": ["increase", "double", "waste"]}, {"text": "Many children use social media to _____ with others.", "ans": "connect", "wrong": ["disconnect", "ignore", "hide"]}, {"text": "Smartphones, tablets and computers are digital _____.", "ans": "devices", "wrong": ["trends", "emojis", "memes"]}, {"text": "Instagram and YouTube are examples of social _____.", "ans": "media", "wrong": ["medicine", "meals", "memories"]}, {"text": "Gen Alpha likes creating short _____ to show their hobbies.", "ans": "videos", "wrong": ["letters", "newspapers", "faxes"]}, {"text": "Many Gen Alpha kids have things in _____ with Gen Z.", "ans": "common", "wrong": ["balance", "trend", "limit"]}, {"text": "Being in distant places means being far _____.", "ans": "apart", "wrong": ["away from home", "ahead", "above"]}, {"text": "To be part of something means to _____ it.", "ans": "include", "wrong": ["exclude", "limit", "ignore"]}, {"text": "Our generation grew up with phones and _____.", "ans": "tablets", "wrong": ["typewriters", "radios", "horses"]}, {"text": "Amal was a _____ girl; she always wanted to know and learn new things.", "ans": "curious", "wrong": ["lazy", "weak", "shy"]}, {"text": "A strong feeling or excitement about something means being _____.", "ans": "passionate", "wrong": ["bored", "tired", "careless"]}, {"text": "Being allowed to do something means having _____.", "ans": "permission", "wrong": ["identity", "balance", "trends"]}, {"text": "Amal asked _____ permission before downloading anything.", "ans": "for", "wrong": ["on", "in", "at"]}, {"text": "\"Your identity is what makes you _____.\"", "ans": "special", "wrong": ["ordinary", "boring", "tired"]}, {"text": "The teacher announced a \"Creative _____\" where children showed their work.", "ans": "Fair", "wrong": ["Farm", "Fare", "Fear"]}, {"text": "\"Who you are\" is your _____.", "ans": "identity", "wrong": ["activity", "ability", "entity"]}, {"text": "Amal decided to build a talking _____.", "ans": "robot", "wrong": ["rocket", "road", "rope"]}, {"text": "Yara _____ Amal to be herself.", "ans": "encouraged", "wrong": ["warned", "punished", "ignored"]}, {"text": "Amal never shared her personal _____ online.", "ans": "information", "wrong": ["invitation", "imagination", "instruction"]}, {"text": "Using the internet safely is part of our digital _____.", "ans": "responsibility", "wrong": ["holiday", "hobby", "weakness"]}, {"text": "A person who writes a blog is called a _____.", "ans": "blogger", "wrong": ["bloggist", "blogman", "blogwriter"]}, {"text": "A blog is like an online _____ where someone writes regularly.", "ans": "journal", "wrong": ["jacket", "journey", "joke"]}, {"text": "Saja puts her phone _____ during meals.", "ans": "away", "wrong": ["up", "on", "in"]}, {"text": "We should limit screen time before _____.", "ans": "bed", "wrong": ["breakfast", "birth", "boats"]}, {"text": "\"It's okay to enjoy your screen, but don't let it _____ you.\"", "ans": "control", "wrong": ["connect", "include", "balance"]}, {"text": "Too much time on smartphones can be _____.", "ans": "unhealthy", "wrong": ["healthy", "useful", "wise"]}, {"text": "Gen Alpha are creative, quick learners, and very _____.", "ans": "adaptive", "wrong": ["lazy", "slow", "careless"]}, {"text": "Children who change easily to fit new situations are _____.", "ans": "adaptive", "wrong": ["stubborn", "bored", "old-fashioned"]}, {"text": "Saja uses her smartphone for homework, researching and _____ with friends.", "ans": "chatting", "wrong": ["cheating", "cheering", "charging"]}, {"text": "Some trends online are fun, but we also need real-_____ time together.", "ans": "life", "wrong": ["live", "light", "line"]}, {"text": "Young people should build good digital _____, like not using phones at meals.", "ans": "habits", "wrong": ["hobbies", "houses", "holes"]}, {"text": "Gen Alpha usually spend a lot of time online, _____ the latest trends.", "ans": "exploring", "wrong": ["exporting", "explaining", "exploding"]}, {"text": "New trends quickly _____ across digital communities.", "ans": "spread", "wrong": ["shrink", "sleep", "stop"]}, {"text": "Gen Alpha sometimes send emojis _____ of words.", "ans": "instead", "wrong": ["because", "inside", "in front"]}, {"text": "Parents also encourage useful digital _____ like coding.", "ans": "skills", "wrong": ["skins", "skies", "skirts"]}, {"text": "Technology helps both generations understand each _____.", "ans": "other", "wrong": ["another", "others", "one"]}, {"text": "Leila tries hard to _____ her work with her personal life.", "ans": "balance", "wrong": ["limit", "trend", "delete"]}, {"text": "Some _____ express our feelings better than words.", "ans": "emojis", "wrong": ["newspapers", "passwords", "settings"]}, {"text": "Both generations care about the _____ and treating people fairly.", "ans": "environment", "wrong": ["entertainment", "equipment", "engine"]}, {"text": "Treating everyone equally is _____.", "ans": "fairness", "wrong": ["sadness", "weakness", "darkness"]}, {"text": "Gen Alpha always looks for new ways to _____ themselves.", "ans": "express", "wrong": ["expect", "expand", "expire"]}, {"text": "The opposite of \"online\" is _____.", "ans": "offline", "wrong": ["inline", "outline", "sideline"]}, {"text": "The opposite of \"include\" is _____.", "ans": "exclude", "wrong": ["involve", "contain", "add"]}, {"text": "The opposite of \"connect\" is _____.", "ans": "disconnect", "wrong": ["join", "link", "attach"]}, {"text": "The opposite of \"limit\" (verb) in this context is _____.", "ans": "increase", "wrong": ["reduce", "control", "cut"]}, {"text": "The opposite of \"curious\" is _____.", "ans": "uninterested", "wrong": ["interested", "eager", "nosy"]}, {"text": "Gen Alpha use technology from a very _____ age.", "ans": "young", "wrong": ["old", "late", "elderly"]}, {"text": "The children _____ Amal and said, \"You are strange.\"", "ans": "annoyed", "wrong": ["admired", "thanked", "helped"]}, {"text": "Amal was excited but also _____: \"What if others laugh at me?\"", "ans": "worried", "wrong": ["relaxed", "bored", "sleepy"]}, {"text": "Amal's room was full of old toys, _____ and little machines.", "ans": "wires", "wrong": ["wives", "wings", "wheels"]}, {"text": "Gen Alpha children are _____ discovering new trends.", "ans": "constantly", "wrong": ["rarely", "never", "hardly"]}, {"text": "Gen Alpha _____ spends a day without technology.", "ans": "rarely", "wrong": ["always", "often", "usually"]}, {"text": "This generation _____ a powerful trend that is shaping the future.", "ans": "represents", "wrong": ["repeats", "removes", "refuses"]}, {"text": "Gen Alpha likes using digital tools to create their _____ in the modern world.", "ans": "identity", "wrong": ["holiday", "hunger", "homework"]}, {"text": "\"Digital natives\" are individuals who have grown up with _____.", "ans": "technology", "wrong": ["animals", "farms", "horses"]}, {"text": "Technology helps people connect even if they live far _____.", "ans": "apart", "wrong": ["close", "near", "beside"]}, {"text": "Social media and online _____ help Gen Z and Gen Alpha have fun.", "ans": "games", "wrong": ["gardens", "gates", "gifts"]}, {"text": "Using apps before learning to read shows Gen Alpha are true digital _____.", "ans": "natives", "wrong": ["migrants", "guests", "outsiders"]}, {"text": "A popular new idea or style is a _____.", "ans": "trend", "wrong": ["trap", "trace", "trade"]}, {"text": "\"Screen time\" means the amount of time spent using a _____.", "ans": "device", "wrong": ["desk", "door", "dish"]}, {"text": "Many teachers and parents _____ how this generation will grow up.", "ans": "wonder", "wrong": ["wander", "wonderful", "wound"]}, {"text": "Too much screen time can affect our health and _____.", "ans": "relationships", "wrong": ["rivers", "roads", "rainbows"]}, {"text": "Dr. Wessam says the main challenge for Gen Alpha is _____.", "ans": "balance", "wrong": ["money", "food", "weather"]}, {"text": "A word or phrase made of two words like \"screen time\" is a word _____.", "ans": "combination", "wrong": ["conversation", "competition", "celebration"]}, {"text": "Gen Alpha share memes and use emojis to express _____.", "ans": "feelings", "wrong": ["furniture", "fuel", "factories"]}, {"text": "Someone who gives you advice to \"think before you post\" is giving you a useful _____.", "ans": "tip", "wrong": ["top", "tap", "type"]}, {"text": "Zeinab thinks five hours a day is too much use of her _____.", "ans": "smartphone", "wrong": ["sandwich", "schoolbag", "sofa"]}, {"text": "\"I get it, but...\" and \"That's true, but...\" are used for polite _____.", "ans": "disagreement", "wrong": ["thanking", "greetings", "apologies"]}, {"text": "Using phrases like \"In my opinion\" helps you explain your _____ clearly.", "ans": "ideas", "wrong": ["ideals", "idols", "idles"]}, {"text": "Learning to code is a useful digital _____.", "ans": "skill", "wrong": ["screen", "scene", "scale"]}, {"text": "Lujain doesn't want to feel left _____.", "ans": "out", "wrong": ["in", "up", "on"]}, {"text": "Gen Alpha can use five _____ at the same time, research shows.", "ans": "apps", "wrong": ["apples", "apes", "aprons"]}, {"text": "The teacher warned that Gen Alpha mustn't _____ offline skills.", "ans": "neglect", "wrong": ["collect", "select", "protect"]}, {"text": "To neglect something means to _____.", "ans": "not give it enough care", "wrong": ["care about it a lot", "buy it", "repair it"]}, {"text": "Ali's little sister made a short _____ about their cat.", "ans": "reel", "wrong": ["rail", "real", "roll"]}, {"text": "Gen Alpha process information _____ than older generations.", "ans": "faster", "wrong": ["slower", "weaker", "later"]}, {"text": "ICT is the school subject that teaches about information and communication _____.", "ans": "technology", "wrong": ["tradition", "travel", "tourism"]}, {"text": "Children who are guided well can use technology to solve global _____.", "ans": "problems", "wrong": ["promises", "prizes", "products"]}, {"text": "Influencers and online trends can affect _____ we are.", "ans": "who", "wrong": ["why", "where", "when"]}, {"text": "A person whose job is to interview guests on a show is a _____.", "ans": "host", "wrong": ["hostage", "hostel", "hose"]}, {"text": "Amal was _____ about building a talking robot.", "ans": "passionate", "wrong": ["careless", "sleepy", "bored"]}, {"text": "Gen Z is _____ than Gen Alpha.", "ans": "older", "wrong": ["younger", "newer", "smaller"]}, {"text": "Gen Alpha and Gen Z speak the same digital _____.", "ans": "language", "wrong": ["landscape", "lane", "lamp"]}, {"text": "Saja says using emojis and memes can be funny and _____.", "ans": "creative", "wrong": ["boring", "dangerous", "rude"]}, {"text": "Watching short videos and sharing memes are popular online _____.", "ans": "activities", "wrong": ["accidents", "addresses", "animals"]}, {"text": "Many young people today are true digital natives, _____ technology every day.", "ans": "using", "wrong": ["refusing", "avoiding", "hating"]}, {"text": "Saja spends around 5 to 6 hours a day on screens, _____ homework.", "ans": "including", "wrong": ["excluding", "instead of", "without"]}, {"text": "Technology helps both generations work _____ to make the world better.", "ans": "together", "wrong": ["against", "apart", "alone"]}, {"text": "\"Gen Alpha\" refers to children born _____ 2010.", "ans": "around", "wrong": ["above", "across", "among"]}, {"text": "\"Generation\" is to \"people born at the same time\" as \"trend\" is to \"a popular new _____\".", "ans": "style", "wrong": ["stone", "street", "story"]}];
+        const GRAMMAR_TOPIC = "Present Continuous Tense";
+        const UNIT_NUM = 1;
+        const UNIT_NAME = "Gen Alpha";
+
+        const TEACHER_PHONE = '201033875892';
+        const Q_PER_TEAM = 10;
+        const SOLO_COUNT = 30;          // questions per solo game when the bank is large
+        const LARGE_BANK = 40;          // banks bigger than this are sampled instead of played in full
+
+        function soloCount(bank) { return bank.length > LARGE_BANK ? SOLO_COUNT : bank.length; }
+
+        // Picks n different questions, preferring ones this browser hasn't seen yet,
+        // so repeated plays rotate through the whole bank before anything repeats.
+        function pickFresh(bank, n, tag) {
+            n = Math.min(n, bank.length);
+            const key = 'qrot:' + location.pathname + ':' + currentSection + (tag || '');
+            let seen = [];
+            try {
+                const saved = JSON.parse(localStorage.getItem(key) || 'null');
+                if (saved && saved.len === bank.length && Array.isArray(saved.seen)) seen = saved.seen;
+            } catch (e) {}
+            const all = bank.map((_, i) => i);
+            const pool = shuffle(all.filter(i => seen.indexOf(i) < 0));
+            let chosen;
+            if (pool.length >= n) {
+                chosen = pool.slice(0, n);
+                seen = seen.concat(chosen);
+            } else {
+                const extra = shuffle(all.filter(i => pool.indexOf(i) < 0)).slice(0, n - pool.length);
+                chosen = shuffle(pool.concat(extra));
+                seen = extra.slice();
+            }
+            try { localStorage.setItem(key, JSON.stringify({ len: bank.length, seen: seen })); } catch (e) {}
+            return chosen.map(i => bank[i]);
+        }
+        const GAME_NAMES = { 1: 'Multiple Choice', 2: 'Falling Bubbles', 3: 'Target Practice', 4: 'True or False', 5: 'Advanced Challenge' };
+
+        let currentSection = HAS_GRAMMAR ? null : 'vocab';
+        let currentMode = 'solo';
+        let runMode = 'solo';
+        let currentGameId = null;
+        let questionTime = 20;
+        let teams = [];
+        let running = false;
+        let countdownTimer = null;
+        let endTimeout = null;
+        let lastResultText = '';
+
+        const screens = document.querySelectorAll('.screen');
+        const arena = document.getElementById('arena');
+
+        if (!HAS_GRAMMAR) {
+            const gc = document.getElementById('grammar-card');
+            if (gc) gc.style.display = 'none';
+        }
+
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+            return a;
+        }
+        function currentBank() { return currentSection === 'grammar' ? GRAMMAR_BANK : VOCAB_BANK; }
+
+        // pointerdown fires per finger, so two teams can tap at the same moment on an interactive board
+        function onTap(el, fn) {
+            if (window.PointerEvent) {
+                el.addEventListener('pointerdown', e => { e.preventDefault(); fn(); });
+            } else {
+                el.addEventListener('touchstart', e => { e.preventDefault(); fn(); }, { passive: false });
+                el.addEventListener('mousedown', fn);
+            }
+        }
+
+        function switchScreen(screenId) {
+            screens.forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            document.body.classList.toggle('compact', screenId === 'game-screen' && runMode === 'comp');
+            window.scrollTo(0, 0);
+        }
+
+        function chooseSection(section) {
+            currentSection = section;
+            document.getElementById('menu-title').innerText = section === 'grammar' ? 'Grammar Games' : 'Vocabulary Games';
+            document.getElementById('menu-desc').innerText = 'Unit ' + UNIT_NUM + ': ' + UNIT_NAME + ' — ' + (section === 'grammar' ? GRAMMAR_TOPIC : 'Words');
+            setMode(currentMode);
+            switchScreen('main-menu');
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            mode = currentMode = 'solo';
+            const bankSize = currentBank().length;
+            const n = soloCount(currentBank());
+            document.getElementById('mode-hint').innerHTML = mode === 'solo'
+                ? '<i class="fas fa-info-circle"></i> Play on your own — ' + n + ' questions, no time limit.' +
+                  (n < bankSize ? ' A new random set from ' + bankSize + ' questions every time you play.' : '')
+                : '<i class="fas fa-info-circle"></i> Two teams play at the same time, each on its own half of the screen — ' + Q_PER_TEAM + ' questions per team. Highest score wins; if scores are equal, the faster team wins.';
+        }
+
+        function buildQuestion(t, type) {
+            if (type === 'TF') {
+                const isTrue = Math.random() > 0.5;
+                const shown = isTrue ? t.ans : t.wrong[Math.floor(Math.random() * t.wrong.length)];
+                return { q: t.text.replace(/_{5,}/, '[ ' + shown + ' ]'), options: ['True', 'False'], answer: isTrue ? 'True' : 'False', originalAnswer: t.ans };
+            }
+            return { q: t.text.replace(/_{5,}/, '_____'), options: shuffle([t.ans, ...t.wrong]), answer: t.ans };
+        }
+
+        function prepareTeamSets(bank, type, mode, tag) {
+            const pool = pickFresh(bank, mode === 'same' ? Q_PER_TEAM : Q_PER_TEAM * 2, tag);
+            if (mode === 'same') {
+                const base = pool.slice(0, Q_PER_TEAM).map(t => buildQuestion(t, type));
+                return [0, 1].map(() => shuffle(base).map(q => ({ ...q, options: type === 'TF' ? q.options : shuffle(q.options) })));
+            }
+            if (pool.length < Q_PER_TEAM * 2) {
+                return [0, 1].map(() => shuffle(pool).slice(0, Q_PER_TEAM).map(t => buildQuestion(t, type)));
+            }
+            return [pool.slice(0, Q_PER_TEAM), pool.slice(Q_PER_TEAM, Q_PER_TEAM * 2)].map(set => set.map(t => buildQuestion(t, type)));
+        }
+
+        function createTeam(i, name, questions, solo) {
+            const panel = document.createElement('div');
+            panel.className = 'team-panel ' + (solo ? 'solo' : 't' + i);
+            panel.innerHTML = `
+                <div class="team-head"><span class="team-name"></span><span class="team-score">0</span></div>
+                <div class="team-meta">
+                    <span>Question <span class="q-num">0</span> / ${questions.length}</span>
+                    <span class="timer-num">${questionTime}</span>
+                </div>
+                <div class="timer-bar"><div class="timer-fill"></div></div>
+                <div class="question-text">Get ready...</div>
+                <div class="options-grid" style="display:none"></div>
+                <div class="bubbles-container" style="display:none"></div>
+                <div class="targets-container" style="display:none"></div>
+                <div class="team-flash"></div>
+                <div class="team-done">
+                    <i class="fas fa-flag-checkered" style="font-size:4rem;color:var(--team)"></i>
+                    <h3 style="font-size:1.6rem;color:var(--team-dark)">Finished!</h3>
+                    <div class="done-score" style="font-size:1.3rem;font-weight:800"></div>
+                    <div style="color:#64748b">Waiting for the other team...</div>
+                </div>`;
+            panel.querySelector('.team-name').textContent = name;
+            arena.appendChild(panel);
+            const q = s => panel.querySelector(s);
+            return {
+                idx: i, name, questions, solo,
+                score: 0, qIndex: 0, mistakes: [],
+                intervals: [], timeouts: [], timerInt: null,
+                qStart: 0, timeUsed: 0, locked: true, finished: false,
+                el: {
+                    panel, score: q('.team-score'), qNum: q('.q-num'),
+                    timerNum: q('.timer-num'), timerFill: q('.timer-fill'),
+                    question: q('.question-text'), options: q('.options-grid'),
+                    bubbles: q('.bubbles-container'), targets: q('.targets-container'),
+                    flash: q('.team-flash'), doneScore: q('.done-score')
+                }
+            };
+        }
+
+        function clearTeam(team) {
+            team.intervals.forEach(clearInterval); team.intervals = [];
+            team.timeouts.forEach(clearTimeout); team.timeouts = [];
+            if (team.timerInt) { clearInterval(team.timerInt); team.timerInt = null; }
+            team.el.bubbles.innerHTML = '';
+            team.el.targets.innerHTML = '';
+        }
+
+        function stopAll() {
+            running = false;
+            if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+            if (endTimeout) { clearTimeout(endTimeout); endTimeout = null; }
+            document.getElementById('countdown').classList.remove('show');
+            teams.forEach(clearTeam);
+        }
+
+        function returnToMenu() {
+            stopAll();
+            switchScreen('main-menu');
+        }
+
+        function startGame(gameId) {
+            try { if (audioCtx) audioCtx.resume(); } catch (e) {}
+            stopAll();
+            currentGameId = gameId;
+            runMode = currentMode;
+
+            // Falling Bubbles and Target Practice need short answers to fit inside the moving shapes
+            const moving = (gameId === 2 || gameId === 3);
+            const fullBank = currentBank();
+            const shortBank = fullBank.filter(q => [q.ans].concat(q.wrong).every(o => o.length <= 22));
+            const bank = (moving && fullBank.length > LARGE_BANK && shortBank.length >= Q_PER_TEAM * 2) ? shortBank : fullBank;
+            const tag = bank === fullBank ? '' : ':short';
+            const type = (gameId === 4) ? 'TF' : 'MCQ';
+            const sectionName = currentSection === 'grammar' ? 'Grammar' : 'Vocabulary';
+            arena.innerHTML = '';
+
+            if (runMode === 'solo') {
+                questionTime = 0;
+                arena.className = 'arena solo';
+                teams = [createTeam(0, '🎯 Your Score', pickFresh(bank, soloCount(bank), tag).map(t => buildQuestion(t, type)), true)];
+                document.getElementById('comp-title').innerText = GAME_NAMES[gameId] + ' — ' + sectionName;
+                document.getElementById('comp-time-wrap').style.display = 'none';
+                document.getElementById('btn-stop').innerHTML = '<i class="fas fa-arrow-left"></i> Back';
+                switchScreen('game-screen');
+                running = true;
+                loadQuestion(teams[0]);
+                return;
+            }
+
+            questionTime = parseInt(document.getElementById('q-time').value, 10) || 20;
+            const names = [val('team1-name') || 'Team A', val('team2-name') || 'Team B'];
+            const sets = prepareTeamSets(bank, type, document.getElementById('q-mode').value, tag);
+            arena.className = 'arena';
+            teams = [0, 1].map(i => createTeam(i, names[i], sets[i], false));
+            document.getElementById('comp-title').innerText = '🏆 ' + GAME_NAMES[gameId] + ' — ' + sectionName;
+            document.getElementById('comp-time-wrap').style.display = '';
+            document.getElementById('comp-time-label').innerText = questionTime;
+            document.getElementById('btn-stop').innerHTML = '<i class="fas fa-stop"></i> Stop';
+            switchScreen('game-screen');
+            runCountdown(() => { running = true; teams.forEach(t => loadQuestion(t)); });
+        }
+
+        function runCountdown(done) {
+            const ov = document.getElementById('countdown');
+            let n = 3;
+            ov.innerText = n;
+            ov.classList.add('show');
+            playSound('tick');
+            countdownTimer = setInterval(() => {
+                n--;
+                if (n > 0) { ov.innerText = n; playSound('tick'); }
+                else if (n === 0) { ov.innerText = 'GO!'; playSound('go'); }
+                else { clearInterval(countdownTimer); countdownTimer = null; ov.classList.remove('show'); done(); }
+            }, 800);
+        }
+
+        function loadQuestion(team) {
+            if (!running) return;
+            clearTeam(team);
+            if (team.qIndex >= team.questions.length) { finishTeam(team); return; }
+
+            const qData = team.questions[team.qIndex];
+            const el = team.el;
+            team.locked = false;
+            el.qNum.innerText = team.qIndex + 1;
+            el.question.innerText = qData.q;
+            el.options.style.display = 'none';
+            el.bubbles.style.display = 'none';
+            el.targets.style.display = 'none';
+
+            if (currentGameId === 1 || currentGameId === 4 || currentGameId === 5) {
+                el.options.style.display = 'grid';
+                el.options.innerHTML = '';
+                qData.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = opt;
+                    if (currentGameId === 5) { btn.style.borderRadius = '30px'; btn.style.borderWidth = '3px'; btn.style.transform = 'scale(0.98)'; }
+                    onTap(btn, () => handleAnswer(team, opt === qData.answer, opt, qData));
+                    el.options.appendChild(btn);
+                });
+            } else if (currentGameId === 2) {
+                el.bubbles.style.display = 'block';
+                startBubblesGame(team, qData);
+            } else if (currentGameId === 3) {
+                el.targets.style.display = 'block';
+                startTargetsGame(team, qData);
+            }
+            startTimer(team, qData);
+        }
+
+        function startTimer(team, qData) {
+            team.qStart = performance.now();
+            if (!questionTime) return;
+            const total = questionTime * 1000;
+            const fill = team.el.timerFill, num = team.el.timerNum;
+            fill.classList.remove('warn', 'danger');
+            fill.style.width = '100%';
+            num.innerText = questionTime;
+            team.timerInt = setInterval(() => {
+                const left = Math.max(0, total - (performance.now() - team.qStart));
+                const pct = left / total * 100;
+                fill.style.width = pct + '%';
+                fill.classList.toggle('warn', pct <= 50 && pct > 25);
+                fill.classList.toggle('danger', pct <= 25);
+                num.innerText = Math.ceil(left / 1000);
+                if (left <= 0) handleAnswer(team, false, 'Time up', qData);
+            }, 100);
+        }
+
+        function flashTeam(team, ok, timeout) {
+            const f = team.el.flash;
+            const icon = ok ? 'fa-check-circle' : (timeout ? 'fa-hourglass-end' : 'fa-times-circle');
+            f.className = 'team-flash show ' + (ok ? 'correct' : 'wrong');
+            f.innerHTML = '<i class="fas ' + icon + '"></i>';
+            setTimeout(() => f.classList.remove('show'), 650);
+        }
+
+        function handleAnswer(team, isCorrect, selectedOpt, qData) {
+            if (team.locked || !running) return;
+            team.locked = true;
+            const spent = performance.now() - team.qStart;
+            team.timeUsed += questionTime ? Math.min(questionTime * 1000, spent) : spent;
+            clearTeam(team);
+
+            if (isCorrect) {
+                playSound('correct');
+                team.score++;
+                team.el.score.innerText = team.score;
+            } else {
+                playSound('wrong');
+                team.mistakes.push({ q: qData.q, correct: qData.originalAnswer || qData.answer });
+            }
+            flashTeam(team, isCorrect, selectedOpt === 'Time up');
+
+            if (currentGameId === 1 || currentGameId === 4 || currentGameId === 5) {
+                team.el.options.querySelectorAll('button').forEach(btn => {
+                    btn.disabled = true;
+                    if (btn.innerText === qData.answer) btn.classList.add('correct');
+                    else if (btn.innerText === selectedOpt && !isCorrect) btn.classList.add('wrong');
+                });
+            }
+            team.timeouts.push(setTimeout(() => { team.qIndex++; loadQuestion(team); }, 1000));
+        }
+
+        function startBubblesGame(team, qData) {
+            const area = team.el.bubbles;
+            area.innerHTML = '';
+            const width = area.clientWidth, height = area.clientHeight;
+            const isMobile = width < 480;
+            const segmentWidth = width / qData.options.length;
+            const baseSize = Math.max(46, Math.min(segmentWidth - 14, isMobile ? 78 : 110));
+
+            shuffle(qData.options).forEach((opt, i) => {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.innerText = opt;
+                const size = baseSize - Math.random() * (baseSize * 0.12);
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                const minLeft = i * segmentWidth + 4;
+                let maxLeft = (i + 1) * segmentWidth - size - 4;
+                if (maxLeft < minLeft) maxLeft = minLeft;
+                bubble.style.left = (minLeft + Math.random() * (maxLeft - minLeft)) + 'px';
+                let currentTop = -100 - (Math.random() * 150);
+                bubble.style.top = currentTop + 'px';
+                onTap(bubble, () => handleAnswer(team, opt === qData.answer, opt, qData));
+                area.appendChild(bubble);
+
+                const speed = 0.45 + Math.random() * 0.55;
+                const interval = setInterval(() => {
+                    currentTop += speed;
+                    bubble.style.top = currentTop + 'px';
+                    if (currentTop > height) {
+                        clearInterval(interval);
+                        if (opt === qData.answer) handleAnswer(team, false, 'Missed', qData);
+                    }
+                }, 20);
+                team.intervals.push(interval);
+            });
+        }
+
+        function startTargetsGame(team, qData) {
+            const area = team.el.targets;
+            area.innerHTML = '';
+            const height = area.clientHeight, width = area.clientWidth;
+            const laneHeight = height / qData.options.length;
+            const targetH = width < 480 ? 46 : 60;
+
+            shuffle(qData.options).forEach((opt, i) => {
+                const target = document.createElement('div');
+                target.className = 'target';
+                target.innerText = opt;
+                target.style.top = ((i * laneHeight) + Math.max(0, (laneHeight - targetH) / 2)) + 'px';
+                let currentLeft = -180 - (Math.random() * 220);
+                target.style.left = currentLeft + 'px';
+                onTap(target, () => handleAnswer(team, opt === qData.answer, opt, qData));
+                area.appendChild(target);
+
+                const speed = 0.6 + Math.random() * 0.7;
+                const interval = setInterval(() => {
+                    currentLeft += speed;
+                    target.style.left = currentLeft + 'px';
+                    if (currentLeft > width) {
+                        clearInterval(interval);
+                        if (opt === qData.answer) handleAnswer(team, false, 'Missed', qData);
+                    }
+                }, 20);
+                team.intervals.push(interval);
+            });
+        }
+
+        function finishTeam(team) {
+            if (team.finished) return;
+            team.finished = true;
+            team.locked = true;
+            if (team.solo) { endTimeout = setTimeout(endSolo, 300); return; }
+            team.el.timerFill.style.width = '0%';
+            team.el.doneScore.innerText = 'Score: ' + team.score + ' / ' + team.questions.length;
+            team.el.panel.classList.add('finished');
+            if (teams.every(t => t.finished)) endTimeout = setTimeout(endCompetition, 1200);
+        }
+
+        function mistakesHtml(list) {
+            if (!list.length) return '<div style="color:var(--success);font-weight:800;font-size:1.3rem;text-align:center">Excellent! No mistakes. 🌟</div>';
+            return list.map(m => `<div class="mistake-item"><div class="mistake-q">${esc(m.q)}</div><div class="mistake-a"><i class="fas fa-check"></i> Correct Answer: ${esc(m.correct)}</div></div>`).join('');
+        }
+
+        function endSolo() {
+            stopAll();
+            const t = teams[0];
+            document.getElementById('final-score').innerText = t.score;
+            document.getElementById('final-total').innerText = t.questions.length;
+            document.getElementById('mistakes-container').innerHTML = mistakesHtml(t.mistakes);
+            const input = document.getElementById('student-name-input');
+            input.value = '';
+            input.classList.remove('input-error');
+            switchScreen('solo-results');
+        }
+
+        function endCompetition() {
+            stopAll();
+            const [a, b] = teams;
+            let winner = null, byTime = false;
+            if (a.score !== b.score) winner = a.score > b.score ? a : b;
+            else if (Math.abs(a.timeUsed - b.timeUsed) >= 100) { winner = a.timeUsed < b.timeUsed ? a : b; byTime = true; }
+
+            const banner = document.getElementById('winner-banner');
+            if (winner) {
+                banner.innerHTML = '🏆 Winner: ' + esc(winner.name) +
+                    (byTime ? '<div style="font-size:1rem;color:#64748b;font-weight:600;margin-top:6px">Same score — won by faster time</div>' : '');
+                lastResultText = 'Winner: ' + winner.name + (byTime ? ' (faster time)' : '');
+                playSound('win');
+            } else {
+                banner.innerHTML = "🤝 It's a Draw!";
+                lastResultText = "It's a draw";
+            }
+
+            const cards = document.getElementById('score-cards');
+            cards.innerHTML = '';
+            teams.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'score-card t' + t.idx + (winner === t ? ' win' : '');
+                card.innerHTML = `
+                    <h4>${winner === t ? '🏆 ' : ''}${esc(t.name)}</h4>
+                    <div class="big">${t.score} / ${t.questions.length}</div>
+                    <div class="meta"><i class="fas fa-stopwatch"></i> Time: ${(t.timeUsed / 1000).toFixed(1)}s</div>
+                    <div class="results-list">${mistakesHtml(t.mistakes)}</div>`;
+                cards.appendChild(card);
+            });
+            document.getElementById('class-name-input').value = '';
+            switchScreen('results-screen');
+        }
+
+        function resultHeader() {
+            const sectionName = currentSection === 'grammar' ? 'Grammar' : 'Vocabulary';
+            const topicName = currentSection === 'grammar' ? GRAMMAR_TOPIC : 'Words';
+            return '📘 ' + PREP_LABEL + ' - Unit ' + UNIT_NUM + ': ' + UNIT_NAME + '\n' +
+                '📝 Section: ' + sectionName + ' (' + topicName + ')\n' +
+                '🎮 Game: ' + (GAME_NAMES[currentGameId] || 'Game') + '\n';
+        }
+
+        function openWhatsApp(message) {
+            window.open('https://wa.me/' + TEACHER_PHONE + '?text=' + encodeURIComponent(message), '_blank');
+        }
+
+        function sendSoloResult() {
+            const input = document.getElementById('student-name-input');
+            const name = input.value.trim();
+            if (!name) {
+                input.classList.add('input-error');
+                input.focus();
+                setTimeout(() => input.classList.remove('input-error'), 500);
+                return;
+            }
+            const t = teams[0];
+            openWhatsApp('📚 *Game Result*\n👤 Student: ' + name + '\n' + resultHeader() + '✅ Score: ' + t.score + ' / ' + t.questions.length);
+        }
+
+        function sendCompResult() {
+            if (teams.length < 2) return;
+            const cls = val('class-name-input');
+            const [a, b] = teams;
+            openWhatsApp('🏆 *Competition Result*\n' + (cls ? '🏫 Class: ' + cls + '\n' : '') + resultHeader() + '\n' +
+                '🔵 ' + a.name + ': ' + a.score + ' / ' + a.questions.length + ' (' + (a.timeUsed / 1000).toFixed(1) + 's)\n' +
+                '🟠 ' + b.name + ': ' + b.score + ' / ' + b.questions.length + ' (' + (b.timeUsed / 1000).toFixed(1) + 's)\n\n' +
+                '🥇 ' + lastResultText);
+        }
+    </script>
+
+</body>
+</html>
